@@ -6,17 +6,13 @@ const path = require('path');
 
 const app = express();
 const PORT = 5000;
-const SECRET_KEY = "super_hemlig_nyckel_mvg"; // I en riktig app ligger denna dold i en .env-fil
+const SECRET_KEY = "super_hemlig_nyckel_mvg"; 
 
-// --- MIDDLEWARE ---
-// Tillåter API:et att ta emot och skicka JSON-data (Nivå 1)
 app.use(express.json());
 
-// Serverar statiska filer (vår index.html och style.css) från mappen 'public' (Nivå 1)
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-// --- 1. DATABAS (Nivå 1) ---
 const db = new sqlite3.Database('./database.sqlite', (err) => {
     if (err) {
         console.error("Kunde inte ansluta till databasen", err);
@@ -25,7 +21,7 @@ const db = new sqlite3.Database('./database.sqlite', (err) => {
     }
 });
 
-// Skapar tabellen om den inte finns
+
 db.run(`CREATE TABLE IF NOT EXISTS users (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     username TEXT UNIQUE,
@@ -46,7 +42,7 @@ const authenticateToken = (req, res, next) => {
     jwt.verify(token, SECRET_KEY, (err, user) => {
         if (err) return res.status(403).json({ error: "Ogiltig eller utgången token." });
         req.user = user; // Spara användarinfon i requesten
-        next(); // Släpp igenom anropet till routen!
+        next(); 
     });
 };
 
