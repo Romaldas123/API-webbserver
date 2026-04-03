@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Dokumentation</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>Dokumentation av API:et</h1>
+    <h2>Routes</h2>
+    <ul>
+        <li>🔒 <em>GET /users</em> - Returnerar en lista (array) med alla användare.</li>
+        <li>🔒 <em>GET /users/:id</em> - Returnerar en enskild användare angivet av id. Status 404 om den saknas.</li>
+        <li>🔒 <em>POST /users</em> - Skapar en ny användare. Accepterar JSON: <code>{"username": "unikt_namn", "password": "hemligt_lösenord", "first_name": "Förnamn", "last_name": "Efternamn"}</code>.</li>
+        <li>🔒 <em>PUT /users/:id</em> - Uppdaterar en användare (förnamn och efternamn). Returnerar den uppdaterade användaren.</li>
+        <li>🔓 <em>POST /login</em> - Logga in med <code>"username"</code> och <code>"password"</code>. Returnerar en tidsbegränsad JWT-token. Inget lösenord i klartext returneras.</li>
+    </ul>
+    <p>🔒 = Denna route kräver ett giltigt <strong>Bearer token</strong> i Authorization-headern.</p>
+</body>
+</html>

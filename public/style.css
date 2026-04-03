@@ -1,0 +1,22 @@
+body { 
+    font-family: Arial, sans-serif; 
+    line-height: 1.6; 
+    max-width: 800px; 
+    margin: 40px auto; 
+    padding: 0 20px; 
+}
+
+h1 { 
+    border-bottom: 2px solid #ccc; 
+    padding-bottom: 10px; 
+}
+
+li { 
+    margin-bottom: 10px; 
+}
+
+code { 
+    background: #f4f4f4; 
+    padding: 2px 5px; 
+    border-radius: 4px; 
+}
